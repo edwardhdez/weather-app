@@ -10,4 +10,8 @@ export const SNOW = "snow";
 
 export const WINDY = "windy";
 
+export const THUNDER = "thunder";
+
+export const DRIZZLE = "drizzle";
+
 export const FOG = "fog";
