@@ -4,9 +4,9 @@ import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
-import LocationList from './components/LocationList';
-import ForecastExtended from './components/ForecastExtended';
+import LocationListContainer from './containers/LocationListContainer';
 import './App.css';
+import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 
 const cities = [
   'Santo Domingo,DO',
@@ -15,21 +15,11 @@ const cities = [
   'Berlin,DE',
 ]
 
+
 class App extends Component {
 
-  constructor() {
-    super();
-    this.state = { city: null};
-  }
-
-  handleSelectedLocation = city => {
-    this.setState({ city });
-    console.log(`handleSelectedLocation ${city}`);
-
-  }
 
   render() {
-    const { city } = this.state;
     return (
       <Grid>
         <Row>
@@ -44,20 +34,13 @@ class App extends Component {
 
         <Row>
           <Col xs={12} md={6}>
-            <LocationList
-              cities={cities}
-              onselectLocation={this.handleSelectedLocation}>
-            </LocationList>
+            <LocationListContainer cities={cities}> </LocationListContainer>
           </Col>
 
           <Col xs={12} md={6}>
-            <Paper elevation={4}>
+            <Paper zDepth={4}>
               <div className="details">
-                {city ?
-                  <ForecastExtended city={city}></ForecastExtended> :
-                  <h1>Choose a city...</h1>
-                }
-
+                <ForecastExtendedContainer></ForecastExtendedContainer> :
               </div>
             </Paper>
           </Col>
@@ -70,7 +53,6 @@ class App extends Component {
 
 
 }
-
 
 
 export default App;
