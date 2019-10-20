@@ -3,8 +3,9 @@ import thunk from 'redux-thunk';
 import  reducers  from './../reducers';
 
 const initialState = {
-    city: "Buenos Aires,ar"
+    city: 'Santo Domingo,DO'
 };
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 
 export const store = createStore(reducers, initialState, composeEnhancers(applyMiddleware(thunk)));
